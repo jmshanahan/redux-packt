@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import PropTypes from "prop-types";
+import { deleteOrder } from "../actions/orderActions";
 class OrderList extends Component {
   deleteOrder = e => {
-    console.log(parseInt(e.target.getAttribute("data-id")));
+    this.props.deleteOrder(parseInt(e.target.getAttribute("data-id")));
   };
   loadOrders = orders => {
     let list = [];
@@ -11,7 +12,10 @@ class OrderList extends Component {
       list.push(
         <div key={i.toString()} className="d-flex flex-row px-3 order-row">
           <div className="flex-fill flex-shrink-1 py-2 px-4 ">
-            {orders[i].order} {orders[i].amount}
+            {orders[i].order}
+          </div>
+          <div className="flex-fill flex-shrink-1 py-2 px-4 ">
+            {orders[i].amount}
           </div>
           <div className="flex-fill flex-shrink-1 p-1">
             <button
@@ -32,7 +36,11 @@ class OrderList extends Component {
     return <div className="pt-3">{this.loadOrders(orders)}</div>;
   }
 }
+OrderList.PropTypes = {
+  orders: PropTypes.array.isRequired,
+  deleteOrder: PropTypes.func.isRequired
+};
 const mapStateToProps = state => ({
   orders: state.orders
 });
-export default connect(mapStateToProps, null)(OrderList);
+export default connect(mapStateToProps, { deleteOrder })(OrderList);

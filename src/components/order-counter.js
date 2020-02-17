@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 class OrderCounter extends Component {
   render() {
     return (
@@ -9,6 +11,14 @@ class OrderCounter extends Component {
     );
   }
 }
+// OrderList.PropTypes = {
+//   orders: PropTypes.array.isRequired,
+//   deleteOrder: PropTypes.func.isRequired
+// };
+
+// OrderCounter.PropTypes = {
+//   count: PropTypes.number.isRequired
+// };
 const mapStateToProps = state => ({
   count: state.orders.length
 });
