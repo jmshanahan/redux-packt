@@ -1,20 +1,15 @@
 import React, { Component } from "react";
-
-export default class OrderCcounter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orders: [
-        { id: 1, order: "Chocolate", amount: 1 },
-        { id: 2, order: "biscuits", amount: 1 }
-      ]
-    };
-  }
+import { connect } from "react-redux";
+class OrderCounter extends Component {
   render() {
     return (
       <div>
-        <strong>Number of current orders ({this.state.orders.length})</strong>
+        <strong>Number of current orders ({this.props.count})</strong>
       </div>
     );
   }
 }
+const mapStateToProps = state => ({
+  count: state.orders.length
+});
+export default connect(mapStateToProps, null)(OrderCounter);

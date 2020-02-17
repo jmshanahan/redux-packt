@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
-export default class OrderForm extends Component {
+import { connect } from "react-redux";
+import { addOrder } from "../actions/orderActions";
+class OrderForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +12,11 @@ export default class OrderForm extends Component {
   }
   addOrder = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.addOrder(this.state);
+    this.setState({ order: "", amount: 1 });
   };
   handleChange = e => {
-    let newState = [];
+    let newState = {};
     newState[e.target.name] = e.target.value;
     this.setState(newState);
   };
@@ -28,7 +30,8 @@ export default class OrderForm extends Component {
             className="form-control"
             name="order"
             onChange={this.handleChange}
-            value={this.state.amount}
+            value={this.state.order}
+            placeholder="Order"
           />
         </div>
         <div className="form-group">
@@ -48,3 +51,4 @@ export default class OrderForm extends Component {
     );
   }
 }
+export default connect(null, { addOrder })(OrderForm);
