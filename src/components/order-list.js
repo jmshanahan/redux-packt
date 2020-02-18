@@ -36,7 +36,7 @@ class OrderList extends Component {
     return <div className="pt-3">{this.loadOrders(orders)}</div>;
   }
 }
-OrderList.PropTypes = {
+OrderList.propTypes = {
   orders: PropTypes.array.isRequired,
   deleteOrder: PropTypes.func.isRequired
 };

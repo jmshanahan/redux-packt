@@ -53,8 +53,8 @@ class OrderForm extends Component {
     );
   }
 }
-// OrderForm.PropTypes = {
-//   addOrder: PropTypes.func.isRequired
-// };
+OrderForm.propTypes = {
+  addOrder: PropTypes.func.isRequired
+};
 
 export default connect(null, { addOrder })(OrderForm);
