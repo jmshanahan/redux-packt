@@ -34,5 +34,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "A packt course on redux, redux recipes by Medhad Dawoud",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmshanahan/redux-packt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmshanahan/redux-packt/issues"
+  },
+  "homepage": "https://github.com/jmshanahan/redux-packt#readme"
 }
