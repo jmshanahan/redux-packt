@@ -4,18 +4,25 @@ import { Provider } from "react-redux";
 import store from "./components/store";
 import OrderCounter from "./components/order-counter";
 import OrderForm from "./components/order-form";
-import OrderList from "./components/order-list";
+import OrdersList from "./components/order-list";
 import Customers from "./components/customers";
+import OrderBacklog from "./components/order-backlog";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <OrderForm />
-        <hr />
-
-        <OrderCounter />
-        <OrderList />
-        <Customers />
+      <div className="App container">
+        <div className="row">
+          <div className="col-sm-6">
+            <OrderForm />
+            <hr />
+            <Customers />
+            <OrdersList />
+          </div>
+          <div className="col-sm-6">
+            <OrderCounter />
+            <OrderBacklog />
+          </div>
+        </div>
       </div>
     </Provider>
   );

@@ -1,4 +1,4 @@
-import { SWITCH_CUSTOMER } from "../actions/types";
+import { SWITCH_CUSTOMER, RESET_AFTER_SUBMIT } from "../actions/types";
 
 let initialState = [
   {
@@ -22,7 +22,10 @@ const customersReducer = (state = initialState, action) => {
         else c.selected = false;
       });
       return newState;
-
+    case RESET_AFTER_SUBMIT:
+      let nextState = [...state];
+      nextState.forEach(c => (c.selected = false));
+      return nextState;
     default:
       return state;
   }

@@ -20,6 +20,6 @@ OrderCounter.propTypes = {
   count: PropTypes.number.isRequired
 };
 const mapStateToProps = state => ({
-  count: state.orders.length
+  count: state.backlog.length
 });
 export default connect(mapStateToProps, null)(OrderCounter);

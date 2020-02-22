@@ -46,7 +46,7 @@ class OrderForm extends Component {
             value={this.state.amount}
           />
         </div>
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className="btn btn-secondary btn-block">
           Add
         </button>
       </form>
