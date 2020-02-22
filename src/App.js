@@ -7,6 +7,7 @@ import OrderForm from "./components/order-form";
 import OrdersList from "./components/order-list";
 import Customers from "./components/customers";
 import OrderBacklog from "./components/order-backlog";
+import SearchBox from "./components/searchbox";
 function App() {
   return (
     <Provider store={store}>
@@ -20,6 +21,7 @@ function App() {
           </div>
           <div className="col-sm-6">
             <OrderCounter />
+            <SearchBox />
             <OrderBacklog />
           </div>
         </div>
