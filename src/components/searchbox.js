@@ -11,7 +11,7 @@ export class searchbox extends Component {
       searchTerm: ""
     };
     // This is implemented because of an action creator???
-    this.search = this.search.bind(this);
+    // this.search = this.search.bind(this);
   }
 
   handleChanges = e => {
@@ -20,11 +20,17 @@ export class searchbox extends Component {
 
   search = e => {
     e.preventDefault();
+    // We are using the bind above because we need this
+    // to be on the same plane ie this.props this.state
     this.props.changeSearchTerm(this.state.searchTerm);
   };
 
+  //This is the way that it should be done.
   clearSearch = e => {
-    this.setState({ searchTerm: "" });
+    // this.setState({ searchTerm: "" });
+    this.setState(prevState => {
+      return { ...prevState, searchTerm: "" };
+    });
     this.props.changeSearchTerm("");
   };
 

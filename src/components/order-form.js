@@ -15,7 +15,9 @@ class OrderForm extends Component {
   addOrder = e => {
     e.preventDefault();
     this.props.addOrder(this.state);
-    this.setState({ order: "", amount: 1 });
+    this.setState(prevState => {
+      return { ...prevState, order: "", amount: 1 };
+    });
   };
   handleChange = e => {
     let newState = {};
